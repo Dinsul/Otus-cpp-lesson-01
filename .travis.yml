@@ -14,4 +14,4 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-  - curl -T /home/travis/build/Dinsul/Otus-cpp-lesson-01/helloworld-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -uDinsul:$BINTRAY_API_KEY "https://api.bintray.com/otus/Otus-cpp/lesson-01/$TRAVIS_BUILD_NUMBER/helloworld-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
+  - curl -T helloworld-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -uDinsul:$BINTRAY_API_KEY "http://api.bintray.com/alpha/hometasks/lesson-01/$TRAVIS_BUILD_NUMBER/helloworld-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
