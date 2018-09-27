@@ -1,3 +1,5 @@
+#include <cstdio>
+
 #include "sayhello.h"
 
 int main(int argc, char **argv)
@@ -10,6 +12,8 @@ int main(int argc, char **argv)
     {
         initSayHello("Hello world!");
     }
+
+    printf("build %d\n", version());
 
     sayHello();
 
