@@ -7,7 +7,7 @@ find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 configure_file(version.h.in "version.h")
 
 add_executable(${PROJECT_NAME} "main.cpp")
-add_library(sayhello SHARED "sayhello.cpp" "sayhello.h")
+add_library(sayhello "sayhello.cpp" "sayhello.h")
 
 add_executable(test_main_cli "test_main.cpp")
 
