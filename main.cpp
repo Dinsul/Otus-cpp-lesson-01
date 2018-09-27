@@ -10,7 +10,7 @@ int main(int argc, char **argv)
     }
     else
     {
-        initSayHello("Hello world!");
+        initSayHello("Hello, World!");
     }
 
     printf("build %d\n", version());
