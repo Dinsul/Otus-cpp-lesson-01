@@ -4,17 +4,17 @@ project(helloworld VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
-configure_file(version.h.in "version.h")
+configure_file(version.h.in "${PROJECT_SOURCE_DIR}/version.h")
 
 add_executable(${PROJECT_NAME} "main.cpp")
 add_library(sayhello "sayhello.cpp" "sayhello.h")
 
 add_executable(test_main_cli "test_main.cpp")
 
-set_target_properties(${PROJECT_NAME} "test_main_cli" PROPERTIES
-  CXX_STANDARD 14
+set_target_properties(${PROJECT_NAME} "sayhello" "test_main_cli" PROPERTIES
+  CXX_STANDARD 17
   CXX_STANDARD_REQUIRED ON
-  COMPILE_OPTIONS -Wpedantic -Wall -Wextra
+  COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra"
 )
 
 set_target_properties(test_main_cli PROPERTIES
