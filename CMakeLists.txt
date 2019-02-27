@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.2)
 
-project(helloworld VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
+if ($ENV{TRAVIS_BUILD_NUMBER})
+    project(helloworld VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
+else ()
+    project(helloworld VERSION 0.0.1)
+endif ()
 
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
@@ -29,6 +33,7 @@ target_link_libraries(test_main_cli
   sayhello
 )
 
+if(UNIX)
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
@@ -40,6 +45,8 @@ set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
 set(CPACK_PACKAGE_CONTACT dinsul2.0@gmail.com)
 
 include (CPack)
+
+endif()
 
 enable_testing()
 
